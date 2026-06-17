@@ -1,4 +1,4 @@
-// 1 2 1 3 2 5
+// 1 2 1 3 2 5 3 ....
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -25,11 +25,14 @@ int prime(int index)
         {
             count++;
             if (count == index)
+            {
                 return num;
+            }
         }
         num++;
     }
 }
+
 int fib(int index)
 {
     if (index <= 2)
@@ -42,17 +45,16 @@ int main()
     cin.tie(nullptr);
     int n;
     cin >> n;
-    if (n % 2 == 1)
-    {
-        // Fib here
-        index = (n + 1) / 2;
-        cout << fib(index);
-    }
-    else
+    if (n % 2 == 0)
     {
         // Prime here
         index = n / 2;
         cout << prime(index);
     }
-    return 0;
+    else
+    {
+        // Fib here
+        index = (n + 1) / 2;
+        cout << fib(index);
+    }
 }
