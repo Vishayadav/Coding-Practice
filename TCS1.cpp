@@ -1,8 +1,9 @@
-// 1 2 1 3 2 5 3 7....
+// 1 2 1 3 2 5
 #include <iostream>
 #include <cmath>
 using namespace std;
 int index;
+
 bool isPrime(int num)
 {
     if (num < 2)
@@ -24,15 +25,16 @@ int prime(int index)
         {
             count++;
             if (count == index)
-            {
                 return num;
-            }
         }
         num++;
     }
 }
 int fib(int index)
 {
+    if (index <= 2)
+        return 1;
+    return fib(index - 1) + fib(index - 2);
 }
 int main()
 {
@@ -42,13 +44,13 @@ int main()
     cin >> n;
     if (n % 2 == 1)
     {
-        // fib here
+        // Fib here
         index = (n + 1) / 2;
         cout << fib(index);
     }
     else
     {
-        // prime here
+        // Prime here
         index = n / 2;
         cout << prime(index);
     }
