@@ -3,15 +3,17 @@
 #include <cmath>
 using namespace std;
 
-int binary(int n)
+void binary(int n)
 {
     int rem;
     stack<int> st;
+    if (n == 0)
+        st.push(0);
     while (n > 0)
     {
         rem = n % 2;
         st.push(rem);
-        n = floor(n / 2);
+        n /= 2;
     }
     while (!st.empty())
     {
