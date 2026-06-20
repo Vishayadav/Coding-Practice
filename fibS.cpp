@@ -8,18 +8,13 @@ int fibo(int n)
     return fibo(n - 1) + fibo(n - 2);
 }
 
-void fib(int n)
-{
-    for (int i = 0; i < n; i++)
-    {
-        cout << fibo(i) << " ";
-    }
-}
-
 int main()
 {
     int n;
     cin >> n;
-    fib(n);
+    for (int i = 0; i < n; i++)
+    {
+        cout << fibo(i) << " ";
+    }
     return 0;
 }
