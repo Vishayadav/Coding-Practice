@@ -2,7 +2,6 @@
 #include <vector>
 #include <utility>
 #include <unordered_map>
-#include <algorithm>
 
 using namespace std;
 
@@ -19,8 +18,8 @@ public:
             {
                 if (mp[v[i].second] == v[i].first)
                 {
-                    ans.push_back({v[i].first, v[i].second});
                     ans.push_back({v[i].second, v[i].first});
+                    ans.push_back({v[i].first, v[i].second});
                 }
             }
             else
@@ -34,12 +33,17 @@ public:
 
 int main()
 {
-    vector<pair<int, int>> v = {{1, 2}, {2, 1}, {3, 4}, {4, 5}, {5, 4}};
+    int n;
+    cin >> n;
+    vector<pair<int, int>> v(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> v[i].first >> v[i].second;
+    }
     solution obj;
     obj.ans = obj.helper(v);
     for (auto i : obj.ans)
-    {
         cout << i.first << " " << i.second << endl;
-    }
+
     return 0;
 }
