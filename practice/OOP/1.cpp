@@ -19,6 +19,10 @@ public:
         this->color = c;
         this->isSweet = true;
     }
+    void changeColor(string c)
+    {
+        this->color = c;
+    }
 };
 
 int main()
@@ -30,5 +34,7 @@ int main()
     fruit *obj2 = new fruit("Strawberry", "Red", true);
     cout << obj2->name << " " << obj2->color << " " << obj2->isSweet << endl;
     delete obj2;
+    obj1.changeColor("Green");
+    cout << obj1.color;
     return 0;
 }
