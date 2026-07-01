@@ -20,6 +20,19 @@ public:
         this->v = v;
         l = new list<int>[v];
     }
+
+    void printAdjList()
+    {
+        for (int i = 0; i < v; i++)
+        {
+            cout << i << " : ";
+            for (int j : l[i])
+            {
+                cout << j << " ";
+            }
+            cout << endl;
+        }
+    }
 };
 
 int main()
@@ -31,14 +44,6 @@ int main()
     g1.addEdge(4, 1);
     g1.addEdge(3, 4);
 
-    for (int i = 0; i < g1.v; i++)
-    {
-        cout << i << " : ";
-        for (int j : g1.l[i])
-        {
-            cout << j << " ";
-        }
-        cout << endl;
-    }
+    g1.printAdjList();
     return 0;
 }
