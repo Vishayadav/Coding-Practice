@@ -1,31 +1,34 @@
 #include <iostream>
-#include <string>
 
 using namespace std;
 
 class fruit
 {
 public:
-    string name;
-    string color;
+    string name, color;
     bool isSweet;
     fruit()
     {
-        this->name = "Apple";
-        this->color = "Red";
+        this->name = "Banana";
+        this->color = "Yellow";
         this->isSweet = true;
     }
     fruit(string n, string c, bool s)
     {
         this->name = n;
         this->color = c;
-        this->isSweet = s;
+        this->isSweet = true;
     }
 };
 
 int main()
 {
-    fruit obj;
+    fruit obj("Apple", "Red", true);
     cout << obj.name << " " << obj.color << " " << obj.isSweet << endl;
+    fruit obj1;
+    cout << obj1.name << " " << obj1.color << " " << obj1.isSweet << endl;
+    fruit *obj2 = new fruit("Strawberry", "Red", true);
+    cout << obj2->name << " " << obj2->color << " " << obj2->isSweet << endl;
+    delete obj2;
     return 0;
 }
