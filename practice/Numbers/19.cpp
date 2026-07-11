@@ -15,7 +15,7 @@ int main()
 {
     vector<student> v;
     v.emplace_back("Aira", 21);
-    v.push_back("Aira", 21);
+    // v.push_back("Aira", 21);  Won't execute
     student s("Maan", 26);
     v.push_back(s);
     for (auto i : v)
