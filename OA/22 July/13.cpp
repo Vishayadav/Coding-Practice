@@ -11,7 +11,15 @@ int main()
     vector<int> v(n);
     for (int i = 0; i < n; i++)
         cin >> v[i];
-    cout << *max_element(v.begin(), v.end()) << endl;
-    cout << *min_element(v.begin(), v.end());
+    sort(v.begin(), v.end());
+    for (int i = 1; i < n; i++)
+    {
+        if (v[i] != v[i - 1] + 1)
+        {
+            cout << v[i - 1] + 1;
+            return 0;
+        }
+    }
+    cout << "None";
     return 0;
 }
