@@ -11,6 +11,8 @@ int main()
     vector<int> v(n);
     for (int i = 0; i < n; i++)
         cin >> v[i];
-    cout << *max_element(v.begin(), v.end());
+    cout << *max_element(v.begin(), v.end()) << endl;
+    ;
+    cout << *min_element(v.begin(), v.end());
     return 0;
 }
