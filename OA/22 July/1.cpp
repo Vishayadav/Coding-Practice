@@ -14,5 +14,6 @@ int main()
         cin >> v[i];
         sum += v[i];
     }
+    cout << sum;
     return 0;
 }
