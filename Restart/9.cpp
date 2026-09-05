@@ -11,38 +11,36 @@ public:
     {
         // code here
         int n = arr.size();
-        int foothill, pivot;
-        int i;
-        for (i = 1; i < arr.size(); i++)
+        int pivoti, pivotj, i;
+        for (i = n - 2; i >= 0; i--)
         {
-            if (arr[i] < arr[i - 1])
+            if (arr[i] < arr[i + 1])
             {
-                foothill = i;
+                // Decreasing pattern broke here.
+                pivoti = i;
                 break;
             }
         }
-        // Last permutation case:
-        if (i == arr.size())
+        // Last Permutation case:
+        if (i < 0)
         {
             reverse(arr.begin(), arr.end());
             return;
         }
-        // foothill = left marker.
-        for (int j = n; j > foothill; j--)
+        // Left marker found.
+        for (int j = n - 1; j > pivoti; j--)
         {
-            if (arr[j] > arr[foothill])
+            if (arr[j] > arr[pivoti])
             {
-                pivot = j;
+                pivotj = j;
                 break;
             }
         }
-        // Swap foothill and pivot.
-        swap(arr[foothill], arr[pivot]);
-        // Reverse elements after foothill.
-        cout << "foothill: " << foothill << endl;
-        cout << "foothill value: " << arr[foothill] << endl;
-        cout << "arr.end() value: " << *(arr.end()) << endl;
-        reverse(arr.begin() + foothill + 1, arr.end());
+        // Right marker found.
+        // Swap
+        swap(arr[pivoti], arr[pivotj]);
+        // Reverse everything after pivoti element.
+        reverse(arr.begin() + pivoti + 1, arr.end());
     }
 };
 
@@ -56,6 +54,7 @@ int main()
         cin >> arr[i];
     Solution s;
     s.nextPermutation(arr);
+    cout << "Reached Printing";
     for (int i : arr)
         cout << i << " ";
     return 0;
